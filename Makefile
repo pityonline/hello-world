@@ -3,7 +3,7 @@ PKG := "github.com/pityonline/$(PROJECT_NAME)"
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/)
 GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
 
-.PHONY: all dep build clean test coverage coverhtml lint
+.PHONY: all dep build run clean test coverage coverhtml lint
 
 all: build
 
@@ -31,6 +31,9 @@ dep: ## Get the dependencies
 
 build: dep ## Build the binary file
 	@go build -i -v $(PKG)
+
+run: build ## Run the binary file
+	@./$(PROJECT_NAME)
 
 clean: ## Remove previous build
 	@rm -f $(PROJECT_NAME)
