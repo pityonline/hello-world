@@ -5,6 +5,23 @@ go:
   - "1.10"
   - master
 
+stages:
+  - lint
+  - test
+  - cover
+  - build
+
+jobs:
+  include:
+    - stage: lint
+      script: make lint
+    - stage: cover
+      script: make cover
+    - stage: test
+      script: make test
+    - stage: build
+      script: make build
+
 matrix:
   allow_failures:
     - go: master
