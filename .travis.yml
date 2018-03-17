@@ -16,7 +16,7 @@ jobs:
     - stage: lint
       script: make lint
     - stage: cover
-      script: make cover
+      script: make coverage
     - stage: test
       script: make test
     - stage: build
