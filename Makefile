@@ -32,6 +32,7 @@ build: dep ## Build the binary file
 	@go build -i -v $(PKG)
 
 run: build ## Run the binary file
+	@chmod +x $(PROJECT_NAME)
 	@./$(PROJECT_NAME)
 
 clean: ## Remove previous build
